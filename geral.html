@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Dashboard: Visão Geral</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <!-- Fontes -->
+    <link href="fontes/stylesheet.css" rel="stylesheet" type="text/css" />
+    <!-- Fonte Lato -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700,800,900" rel="stylesheet"> 
+    <!-- Ícones -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" title="Página Inicial"><img src="assets/images/Laboratoria_CMYK_logo-01.png" width="270px" height="80px"></a>
+      <ul>
+        <li><a href="geral.html" title="Visão Geral" class="activeLinkColor">VISÃO GERAL</a></li>
+        <li><a href="estudantes.html" title="Estudantes">ESTUDANTES</a></li>
+      </ul>
+      <i class="fas fa-user-circle fa-3x"></i>
+    </nav>
+    
+    <h1 class="title"><i class="fas fa-angle-double-right fa-lg"></i> DADOS GERAIS DAS TURMAS</h1>
+    
+    <select id="select-sede" autocomplete="off" >
+      <!-- <option value="none" selected>Selecione uma sede</option>
+      <option value="AQP">Arequipa</option>
+      <option value="CDMX">Cidade do México</option>
+      <option value="LIM">Lima</option>
+      <option value="SCL">Santiago de Chile</option> -->
+    </select>
+    <select id="select-turma" autocomplete="off" >
+<!--       <option value="none" selected>Selecione uma turma</option>
+      <option value="2016-2" id="2016-2">2016-2</option>
+      <option value="2017-1">2017-1</option>
+      <option value="2017-2" id="2017-2">2017-2</option> -->
+    </select>
+  
+    <main>
+      <section id="enrollment">
+        <h1 class="data-title" id="enrollmentTitle"></h1>
+        <div id="studentsCounter"></div>
+        <div id="quitterPercentage"></div>
+      </section>
+  
+      <section id="achievement">
+       <h1 class="data-title" id="achievementTitle"></h1>
+        <div id="averageStudents"></div>
+        <div id="averageStudentsPercentage"></div>
+      </section>
+
+      <section id="nps">
+        <h1 class="data-title" id="npsTitle"></h1>
+        <div id="totalNps"></div>
+        <div id="specificNps"></div>
+      </section>
+
+      <section id="satisfaction">
+        <h1 class="data-title" id="satisfactionTitle"></h1>
+        <div id="satisfactionPercentage"></div>
+      </section>
+
+      <section id="techScores">
+        <h1 class="data-title" id="techTitle"></h1>
+        <div id="techNumber"></div>
+        <div id="techPercentage"></div>
+      </section>
+
+      <section id="hseScores">
+        <h1 class="data-title" id="hseTitle"></h1>
+        <div id="hseNumber"></div>
+        <div id="hsePercentage"></div>
+      </section>
+
+      <section id="mentores">
+        <h1 class="data-title" id="mentoresTitle"></h1>
+        <div id="scoreMentores"></div>
+      </section>
+
+      <section id="jedi">
+        <h1 class="data-title" id="jediTitle"></h1>
+        <div id="scoreJedi"></div>
+      </section>
+
+    </main>
+
+		<!-- Base de datos -->
+		<script src="./js/data.js"></script>
+		<!-- Aquí va tus archivos JS -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>
