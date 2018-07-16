@@ -6,7 +6,10 @@ body {
 
 #index {
   background-image: url('../assets/images/fundoindex.png');
-  min-height: 85vh;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  background-position: center center;
+  min-height: 80vh;
   width: 100%;
   margin-top: -40px;
 }
@@ -22,7 +25,7 @@ nav {
   margin-bottom: 40px;
 }
 
-ul {
+nav ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
@@ -31,13 +34,13 @@ ul {
   font-size: 15px;
 }
 
-li a {
+nav li a {
   margin: 20px;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.767);
 }
 
-li a:hover {
+nav li a:hover {
   color: #FFE521;
 }
 
@@ -51,22 +54,38 @@ li a:hover {
   color: #FF009E;
 }
 
+.loginIcons {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+}
+
+nav h1 {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 12px;
+  color: #a1a1a1;
+  margin-right: -185px;
+}
+
 .fa-user-circle {
   color: #a1a1a1;
 }
 
 .welcome {
-  text-align: left;
+  text-align: center;
   font-family: 'Open Sans';
   font-weight: normal;
-  color: white;
-  font-size: 22px;
+  color: rgba(0, 0, 0, 0.767);
+  font-size: 18px;
+  margin-top: -30px;
+  margin-bottom: 45px;
 }
 
 .indexTitle {
   font-family: 'Open Sans';
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   color: #FF009E; 
 }
 
@@ -118,7 +137,7 @@ main {
   margin: 20px;
 }
 
-#studentsCounter , #quitterPercentage , #averageStudents , #averageStudentsPercentage , #totalNps , #specificNps , #satisfactionPercentage , #scoreMentores, #scoreJedi , #techNumber , #hseNumber , #techPercentage , #hsePercentage , #numberSprints , #numberSprints2 {
+#studentsCounter , #quitterPercentage , #averageStudents , #averageStudentsPercentage , #totalNps , #specificNps , #cumplePercentage , #superaPercentage, #noCumplePercentage, #scoreMentores, #scoreJedi , #techNumber , #hseNumber , #techPercentage , #hsePercentage , #numberSprints , #numberSprints2 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   font-size: 20px;
@@ -131,7 +150,7 @@ main {
   vertical-align: middle;
 }
 
-#studentsCounter span , #quitterPercentage span , #averageStudents span , #averageStudentsPercentage span , #totalNps span , #specificNps span , #satisfactionPercentage span , #scoreMentores span , #scoreJedi span , #techNumber span , #hseNumber span , #techPercentage span , #hsePercentage span{
+#studentsCounter span , #quitterPercentage span , #averageStudents span , #averageStudentsPercentage span , #totalNps span , #specificNps span , #cumplePercentage span ,  #superaPercentage span, #noCumplePercentage span, #scoreMentores span , #scoreJedi span , #techNumber span , #hseNumber span , #techPercentage span , #hsePercentage span{
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   color: grey;
@@ -149,4 +168,42 @@ main {
   color: black;
   font-weight: normal!important;
   background-color: none!important;
+}
+
+footer {
+  background-color: #56F89A;
+  width: 100%;
+  height: 160px;
+  margin-top: -20px;
+}
+
+footer h1 {
+  color: rgba(0, 0, 0, 0.767);
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+footer div {
+  width: 240px;
+  display: inline-block;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.767);
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.fa-github-square , .fa-slack , .fa-facebook-square , .fa-twitter-square , .fa-instagram {
+  display: inline-block;
+  margin: 5px;
+  color: rgba(0, 0, 0, 0.767);
 }

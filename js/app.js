@@ -106,6 +106,9 @@ function dataGeral() {
   var promoters = 0;
   var passive = 0;
   var detractors = 0;
+  var cumple = 0;
+  var supera = 0;
+  var noCumple = 0;
   var mentores = 0;
   var jedi = 0;
 
@@ -115,6 +118,10 @@ function dataGeral() {
     promoters = promoters + ratings[i]['nps']['promoters'];
     passive = passive + ratings[i]['nps']['passive'];
     detractors = detractors + ratings[i]['nps']['detractors'];
+    
+    cumple = cumple + ratings[i]['student']['cumple'];
+    supera = supera + ratings[i]['student']['supera'];
+    noCumple = noCumple +  ratings[i]['student']['no-cumple'];
 
     mentores = mentores + ratings[i]['teacher'];
     jedi = jedi + ratings[i]['jedi'];
@@ -136,13 +143,18 @@ function dataGeral() {
   var npsTitle = document.getElementById("npsTitle");
   npsTitle.innerHTML = "NET PROMOTER SCORE (NPS)" + '<hr class="hr-data-title"></hr>' + '<span class="description">RECOMENDAÇÃO DAS ESTUDANTES PERANTE À LABORATORIA</span>' + '<br>' + '<span class="description">(NPS MÉDIO DOS SPRINTS)</span>';
 
-  /* Percentual de satisfação das estudantes */
+  /* Percentual médio de satisfação das estudantes */
   var satisfaction = document.getElementById("satisfaction");
   satisfaction.setAttribute("class", "data-box");
   var satisfactionTitle =  document.getElementById("satisfactionTitle");
-  satisfactionTitle.innerHTML = "SATISFAÇÃO DAS ESTUDANTES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA</span>';
-  var satisfactionPercentage = document.getElementById("satisfactionPercentage");
-  satisfactionPercentage.innerHTML = resultPromoters + '%' + '<br>' + '<span>% SATISFAÇÃO</span>';
+  satisfactionTitle.innerHTML = "MÉDIA DE SATISFAÇÃO DAS ESTUDANTES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA</span>';
+  var cumplePercentage = document.getElementById("cumplePercentage");
+  cumplePercentage.innerHTML = parseInt((cumple/ratings.length)) + '%' + '<br>' + '<span>% CUMPRE EXPECTATIVAS</span>';
+  var superaPercentage = document.getElementById("superaPercentage");
+  superaPercentage.innerHTML = parseInt((supera/ratings.length)) + '%' + '<br>' + '<span>% SUPERA EXPECTATIVAS</span>';
+  var noCumplePercentage = document.getElementById("noCumplePercentage");
+  noCumplePercentage.innerHTML = parseInt((noCumple/ratings.length)) + '%' + '<br>' + '<span>% NÃO CUMPRE EXPECTATIVAS</span>';
+
 
   /* Pontuação média dos mentores */
   var totalMentores = mentores/ratings.length;
