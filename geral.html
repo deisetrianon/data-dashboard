@@ -9,7 +9,8 @@
     <!-- Fonte Lato -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700,800,900" rel="stylesheet"> 
     <!-- Ícones -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   </head>
   <body>
     <nav>
@@ -25,17 +26,8 @@
     <h1 class="title"><i class="fas fa-angle-double-right fa-lg"></i> DADOS GERAIS DAS TURMAS</h1>
     
     <select id="select-sede" autocomplete="off" >
-      <!-- <option value="none" selected>Selecione uma sede</option>
-      <option value="AQP">Arequipa</option>
-      <option value="CDMX">Cidade do México</option>
-      <option value="LIM">Lima</option>
-      <option value="SCL">Santiago de Chile</option> -->
     </select>
     <select id="select-turma" autocomplete="off" >
-<!--       <option value="none" selected>Selecione uma turma</option>
-      <option value="2016-2" id="2016-2">2016-2</option>
-      <option value="2017-1">2017-1</option>
-      <option value="2017-2" id="2017-2">2017-2</option> -->
     </select>
   
     <main>
@@ -59,9 +51,7 @@
 
       <section id="satisfaction">
         <h1 class="data-title" id="satisfactionTitle"></h1>
-        <div id="cumplePercentage"></div>
-        <div id="superaPercentage"></div>
-        <div id="noCumplePercentage"></div>
+        <div id="satisfactionPercentage"></div>
       </section>
 
       <section id="techScores">
@@ -73,7 +63,8 @@
       <section id="hseScores">
         <h1 class="data-title" id="hseTitle"></h1>
         <div id="hseNumber"></div>
-        <div id="hsePercentage"></div>
+        <div id="hsePercentage">
+        </div>
       </section>
 
       <section id="mentores">

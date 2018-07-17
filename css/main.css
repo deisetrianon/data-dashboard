@@ -7,9 +7,8 @@ body {
 #index {
   background-image: url('../assets/images/fundoindex.png');
   background-size: cover;
-  /* background-attachment: fixed; */
   background-position: center center;
-  min-height: 80vh;
+  min-height: 50vh;
   width: 100%;
   margin-top: -40px;
 }
@@ -137,7 +136,7 @@ main {
   margin: 20px;
 }
 
-#studentsCounter , #quitterPercentage , #averageStudents , #averageStudentsPercentage , #totalNps , #specificNps , #cumplePercentage , #superaPercentage, #noCumplePercentage, #scoreMentores, #scoreJedi , #techNumber , #hseNumber , #techPercentage , #hsePercentage , #numberSprints , #numberSprints2 {
+#studentsCounter , #quitterPercentage , #averageStudents , #averageStudentsPercentage , #totalNps , #specificNps , #satisfactionPercentage , #scoreMentores, #scoreJedi , #techNumber , #hseNumber , #techPercentage , #hsePercentage , #numberSprints , #numberSprints2 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   font-size: 20px;
@@ -150,16 +149,11 @@ main {
   vertical-align: middle;
 }
 
-#studentsCounter span , #quitterPercentage span , #averageStudents span , #averageStudentsPercentage span , #totalNps span , #specificNps span , #cumplePercentage span ,  #superaPercentage span, #noCumplePercentage span, #scoreMentores span , #scoreJedi span , #techNumber span , #hseNumber span , #techPercentage span , #hsePercentage span{
+#studentsCounter span , #quitterPercentage span , #averageStudents span , #averageStudentsPercentage span , #totalNps span , #specificNps span , #satisfactionPercentage span , #scoreMentores span , #scoreJedi span , #techNumber span , #hseNumber span , #techPercentage span , #hsePercentage span{
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   color: grey;
   font-weight: normal!important;
-}
-
-#numberSprints , #numberSprints2 , #techNumber , #hseNumber , #techPercentage , #hsePercentage {
-  display: block!important;
-  width: auto;
 }
 
 .description {
@@ -170,11 +164,16 @@ main {
   background-color: none!important;
 }
 
+.sprint {
+  color: black!important;
+}
+
 footer {
-  background-color: #56F89A;
   width: 100%;
-  height: 160px;
+  height: 150px;
   margin-top: -20px;
+  background-color: #56F89A;
+  text-align: center;
 }
 
 footer h1 {
@@ -182,19 +181,10 @@ footer h1 {
   font-family: 'Open Sans';
   font-size: 20px;
   font-weight: 600;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
-footer div {
-  width: 240px;
-  display: inline-block;
-}
-
-footer ul {
-  list-style-type: none;
-}
-
-footer li a {
+footer a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.767);
   font-family: 'Open Sans';
@@ -202,8 +192,25 @@ footer li a {
   font-weight: normal;
 }
 
-.fa-github-square , .fa-slack , .fa-facebook-square , .fa-twitter-square , .fa-instagram {
+.fa-file-alt , .fa-calendar-alt , .fa-trello , .fa-google-drive , .fa-github-square , .fa-slack , .fa-facebook-square , .fa-twitter-square , .fa-instagram {
   display: inline-block;
-  margin: 5px;
+  margin: 8px;
   color: rgba(0, 0, 0, 0.767);
+}
+
+#studentsProfiles {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+.profileBox {
+  align-self: center;
+  margin: auto;
+  width: 700px;
+  height: auto;
+  background-color: white;
+  margin: 20px;
 }

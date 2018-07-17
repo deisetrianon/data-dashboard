@@ -147,13 +147,9 @@ function dataGeral() {
   var satisfaction = document.getElementById("satisfaction");
   satisfaction.setAttribute("class", "data-box");
   var satisfactionTitle =  document.getElementById("satisfactionTitle");
-  satisfactionTitle.innerHTML = "MÉDIA DE SATISFAÇÃO DAS ESTUDANTES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA</span>';
-  var cumplePercentage = document.getElementById("cumplePercentage");
-  cumplePercentage.innerHTML = parseInt((cumple/ratings.length)) + '%' + '<br>' + '<span>% CUMPRE EXPECTATIVAS</span>';
-  var superaPercentage = document.getElementById("superaPercentage");
-  superaPercentage.innerHTML = parseInt((supera/ratings.length)) + '%' + '<br>' + '<span>% SUPERA EXPECTATIVAS</span>';
-  var noCumplePercentage = document.getElementById("noCumplePercentage");
-  noCumplePercentage.innerHTML = parseInt((noCumple/ratings.length)) + '%' + '<br>' + '<span>% NÃO CUMPRE EXPECTATIVAS</span>';
+  satisfactionTitle.innerHTML = "MÉDIA DE SATISFAÇÃO DAS ESTUDANTES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA <br> (CUMPRE, SUPERA OU NÃO CUMPRE ÀS EXPECTATIVAS)</span>';
+  var satisfactionPercentage = document.getElementById("satisfactionPercentage");
+  satisfactionPercentage.innerHTML = '<span class="sprint">CUMPRE = </span>' + parseInt((cumple/ratings.length)) + '%' + '<br>' + '<span class="sprint">SUPERA = </span>' + parseInt((supera/ratings.length)) + '%' + '<br>' + '<span class="sprint">NÃO CUMPRE = </span>' + parseInt((noCumple/ratings.length)) + '%';
 
 
   /* Pontuação média dos mentores */
@@ -185,26 +181,19 @@ function dataGeral() {
       var sprint = studentSprints[t];
     
       if (sprint.score.hse > 840) {
-         studentsHseSprint[t] =  studentsHseSprint[t] + 1;
+        studentsHseSprint[t] =  studentsHseSprint[t] + 1;
       }
     } 
   }
 
-  var percentageHseSprint = [
-    parseInt(studentsHseSprint[0] * 100 / students.length) +'%',
-    parseInt(studentsHseSprint[1] * 100 / students.length) +'%',
-    parseInt(studentsHseSprint[2] * 100 / students.length) +'%',
-    parseInt(studentsHseSprint[3] * 100 / students.length) +'%'
-  ];
-
   var total = document.getElementById("hseNumber");
-  total.innerHTML = studentsHseSprint + '<br>' + '<span>NÚMERO DE ESTUDANTES POR ORDEM DE SPRINT</span>' + '<br>' + '<span>(SPRINT 1, SPRINT 2, SPRINT 3, SPRINT 4)</span>';
+  total.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + studentsHseSprint[0] + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + studentsHseSprint[1] + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + studentsHseSprint[2] + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + studentsHseSprint[3] + '<br>' + '<span>NÚMERO DE ESTUDANTES</span>';
 
   var totalPercentage = document.getElementById("hsePercentage");
-  totalPercentage.innerHTML = percentageHseSprint  + '<br>' + '<span>PORCENTAGEM DE ESTUDANTES POR ORDEM DE SPRINT</span>' + '<br>' + '<span>(SPRINT 1, SPRINT 2, SPRINT 3, SPRINT 4)</span>';
+  totalPercentage.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + parseInt(studentsHseSprint[0] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + parseInt(studentsHseSprint[1] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + parseInt(studentsHseSprint[2] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + parseInt(studentsHseSprint[3] * 100 / students.length) + '%' + '<br>' + '<span>% DE ESTUDANTES</span>';
 
   var hseScores = document.getElementById("hseScores");
-  hseScores.setAttribute("class", "scores-box");
+  hseScores.setAttribute("class", "data-box");
   var hseTitle =  document.getElementById("hseTitle");
   hseTitle.innerHTML = "ESTUDANTES QUE EXCEDEM A META DE HSE" + '<hr class="hr-data-title"></hr>';
 
@@ -224,22 +213,15 @@ function dataGeral() {
       }
     } 
   }
-
-  var percentageTechSprint = [
-    parseInt(studentTechSprint[0] * 100 / students.length) +'%',
-    parseInt(studentTechSprint[1] * 100 / students.length) +'%',
-    parseInt(studentTechSprint[2] * 100 / students.length) +'%',
-    parseInt(studentTechSprint[3] * 100 / students.length) +'%'
-  ];
   
   var totalTech = document.getElementById("techNumber");
-  totalTech.innerHTML = studentTechSprint + '<br>' + '<span>NÚMERO DE ESTUDANTES POR ORDEM DE SPRINT</span>' + '<br>' + '<span>(SPRINT 1, SPRINT 2, SPRINT 3, SPRINT 4)</span>';
+  totalTech.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + studentTechSprint[0] + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + studentTechSprint[1] + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + studentTechSprint[2] + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + studentTechSprint[3] + '<br>' + '<span>NÚMERO DE ESTUDANTES</span>';
 
   var totalPercentageTech = document.getElementById("techPercentage");
-  totalPercentageTech.innerHTML = percentageTechSprint + '<br>' + '<span>PORCENTAGEM DE ESTUDANTES POR ORDEM DE SPRINT</span>' + '<br>' + '<span>(SPRINT 1, SPRINT 2, SPRINT 3, SPRINT 4)</span>';
+  totalPercentageTech.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + parseInt(studentTechSprint[0] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + parseInt(studentTechSprint[1] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + parseInt(studentTechSprint[2] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + parseInt(studentTechSprint[3] * 100 / students.length) + '%' + '<br>' + '<span>% DE ESTUDANTES</span>';
 
   var techScores = document.getElementById("techScores");
-  techScores.setAttribute("class", "scores-box");
+  techScores.setAttribute("class", "data-box");
   var techTitle =  document.getElementById("techTitle");
   techTitle.innerHTML = "ESTUDANTES QUE EXCEDEM A META TECH" + '<hr class="hr-data-title"></hr>';
 
