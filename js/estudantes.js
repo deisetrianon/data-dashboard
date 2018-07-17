@@ -45,33 +45,62 @@ function dataStudents() {
   for (i in data[sede][turma]['students']) {
     /* Cria a div que vai receber as informações das alunas */
     var profileBox = document.createElement("div");
-    profileBox.style = " align-self: center; width: 700px; height: auto; background-color: white; margin: 20px; border: 1px solid rgb(209, 209, 209); padding: 10px;";
+    profileBox.setAttribute('class', 'profileBox');
 
     /* Insere o nome da aluna */
     var names = document.createElement("p");
     names.innerHTML = data[sede][turma]['students'][i]['name'] + '<hr class="hr-data-title"></hr>';
-    names.style = "text-transform: uppercase; color: black; font-family: 'Lato', sans-serif; font-weight: bold; font-size: 17px; letter-spacing: 0;"
+    names.setAttribute('class', 'profileName');
 
     /* Insere as imagens das alunas */
     var img = document.createElement("img");
     var photoStudents = data[sede][turma]['students'][i]['photo'];
     img.setAttribute('src', photoStudents);
     img.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/1/19/Gray_-_replace_this_image_female.svg');
-    img.style = "width = 132px; height: 125px; float: left";
+    img.setAttribute('class', 'profileImg');
 
     /* Insere o status das alunas */
     var status = document.createElement("p");
-    status.style = "font-family: 'Lato', sans-serif; font-size: 11px; color: black; font-weight: normal; text-align: center";
+    status.setAttribute('class', 'description');
     if (data[sede][turma]['students'][i]['active'] === true) {
       status.innerHTML = 'ATIVA: SIM';
     } else {
       status.innerHTML = 'ATIVA: NÃO';
     }
 
+
+    for (j in data[sede][turma]['students'][i]['sprints']) {
+      if (data[sede][turma]['students'][i].sprints.length !== 0) {
+        var tech1 = data[sede][turma]['students'][i]['sprints'][0]['score']['tech'];
+        var tech2 = data[sede][turma]['students'][i]['sprints'][1]['score']['tech'];
+        var hse1 = data[sede][turma]['students'][i]['sprints'][0]['score']['hse'];
+        var hse2 = data[sede][turma]['students'][i]['sprints'][1]['score']['hse'];
+        if (data[sede][turma]['students'][i].sprints.length > 2) {
+          var tech3 = data[sede][turma]['students'][i]['sprints'][2]['score']['tech'];
+          var hse3 = data[sede][turma]['students'][i]['sprints'][2]['score']['hse'];
+            if (data[sede][turma]['students'][i].sprints.length > 3) {
+            var tech4 = data[sede][turma]['students'][i]['sprints'][3]['score']['tech'];
+            var hse4 = data[sede][turma]['students'][i]['sprints'][3]['score']['hse'];
+          }
+        }
+      }
+    }
+    
+    var sprintsTech = document.createElement("p");
+    sprintsTech.innerHTML = '<span class="description">PONTOS TECH</span>' + '<br>' + '<span class="profileTitle">SPRINT 1: </span>' + tech1 + '<br>' + '<span class="profileTitle">SPRINT 2: </span>' + tech2 + '<br>' + '<span class="profileTitle">SPRINT 3: </span>' + tech3 + '<br>' + '<span class="profileTitle">SPRINT 4: </span>' + tech4;
+    sprintsTech.setAttribute('class', 'profileScores');
+
+    var sprintsHse = document.createElement("p");
+    sprintsHse.innerHTML = '<span class="description">PONTOS HSE</span>' + '<br>' + '<span class="profileTitle">SPRINT 1: </span>' + hse1 + '<br>' + '<span class="profileTitle">SPRINT 2: </span>' + hse2 + '<br>' + '<span class="profileTitle">SPRINT 3: </span>' + hse3 + '<br>' + '<span class="profileTitle">SPRINT 4: </span>' + hse4;
+    sprintsHse.setAttribute('class', 'profileScores');
+
     profileBox.appendChild(names);
     profileBox.appendChild(img);
     profileBox.appendChild(status);
+    profileBox.appendChild(sprintsTech);
+    profileBox.appendChild(sprintsHse);
     studentsProfiles.appendChild(profileBox);
 
   }
+
 }

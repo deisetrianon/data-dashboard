@@ -82,7 +82,7 @@ function dataGeral() {
       array.push([techAverage, hseAverage]);
       var averageStudents = 0;
       for (var k = 0; k < array.length; k++) {
-        if (array[k][0] >= 1260 && array[k][1] >= 840) {
+        if (array[k][0] > 1260 && array[k][1] > 840) {
           averageStudents++;
         }
       }

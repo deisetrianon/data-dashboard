@@ -8,7 +8,8 @@ body {
   background-image: url('../assets/images/fundoindex.png');
   background-size: cover;
   background-position: center center;
-  min-height: 50vh;
+  background-attachment: fixed;
+  min-height: 90vh;
   width: 100%;
   margin-top: -40px;
 }
@@ -170,18 +171,19 @@ main {
 
 footer {
   width: 100%;
-  height: 150px;
+  height: 120px;
   margin-top: -20px;
   background-color: #56F89A;
   text-align: center;
+  position: fixed;
+  bottom: 0px;
 }
 
 footer h1 {
   color: rgba(0, 0, 0, 0.767);
   font-family: 'Open Sans';
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
-  padding-top: 10px;
 }
 
 footer a {
@@ -213,5 +215,68 @@ footer a {
   height: auto;
   background-color: white;
   margin: 20px;
+  border: 1px solid rgb(209, 209, 209); 
+  padding: 10px;
+}
+
+.profileImg {
+  width: 132px; 
+  height: 185px; 
+  float: left;
+}
+
+.profileName {
+  text-transform: uppercase; 
+  color: black; 
+  font-family: 'Lato', sans-serif; 
+  font-weight: bold; 
+  font-size: 17px; 
+  letter-spacing: 0;
+}
+
+.profileTitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #FF009E;
+}
+
+.profileScores {
+  background-color: whitesmoke; 
+  display: inline-block; 
+  width: 150px; 
+  height: auto; 
+  padding: 10px;
+  margin: 10px;
+}
+
+.styled-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px;
+  width: 268px;
+}
+
+.styled-select.slate {
+  background: url(../assets/images/select.jpg) no-repeat right center;
+  height: 34px;
+  width: 240px;
+  display: inline-block;
+}
+
+.styled-select.slate select {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 34px;
+  width: 268px;
 }
 
