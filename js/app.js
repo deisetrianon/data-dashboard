@@ -1,19 +1,19 @@
-var selectSede = document.getElementById("select-sede");
-var selectTurma = document.getElementById("select-turma");
+var selectSede = document.getElementById('select-sede');
+var selectTurma = document.getElementById('select-turma');
 
 window.onload = chooseSede();
 
 function chooseSede(){
-  var option1 = document.createElement("option");
-  option1.innerHTML = "Selecione uma sede";
-  option1.value = "none";
+  var option1 = document.createElement('option');
+  option1.innerHTML = 'Selecione uma sede';
+  option1.value = 'none';
   selectSede.appendChild(option1);
-  var option2 = document.createElement("option");
-  option2.innerHTML = "Selecione uma turma";
-  option2.value = "none";
+  var option2 = document.createElement('option');
+  option2.innerHTML = 'Selecione uma turma';
+  option2.value = 'none';
   selectTurma.appendChild(option2);
   for (sede in data) {
-    var itemMenu = document.createElement("option");
+    var itemMenu = document.createElement('option');
     itemMenu.value = sede;
     itemMenu.innerHTML = sede;
     selectSede.appendChild(itemMenu);
@@ -25,15 +25,15 @@ function chooseTurma(){
   var selectedSede = selectSede.value;
   var turmas = Object.keys(data[selectedSede]);
   for (turma in turmas) {
-    var itemMenu2 = document.createElement("option");
+    var itemMenu2 = document.createElement('option');
     itemMenu2.value = turmas[turma];
     itemMenu2.innerHTML = turmas[turma];
     selectTurma.appendChild(itemMenu2);
   }
 }
 
-selectSede.addEventListener("change", chooseTurma);
-selectTurma.addEventListener("change", dataGeral);
+selectSede.addEventListener('change', chooseTurma);
+selectTurma.addEventListener('change', dataGeral);
 
 
 function dataGeral() {
@@ -43,12 +43,12 @@ function dataGeral() {
   /* Calcula o número total de estudantes por sede e geração */
   for (students in data[sede][turma]) {
     var students = data[sede][turma].students;
-    var studentsCounter = document.getElementById("studentsCounter");
-    studentsCounter.innerHTML = students.length + "<br>" + "<span>  NÚMERO DE ESTUDANTES</span>";
-    var enrollment = document.getElementById("enrollment");
-    enrollment.setAttribute("class", "data-box");
-    var enrollmentTitle = document.getElementById("enrollmentTitle");
-    enrollmentTitle.innerHTML = "REGISTRO" + '<hr class="hr-data-title"></hr>';
+    var studentsCounter = document.getElementById('studentsCounter');
+    studentsCounter.innerHTML = students.length + '<br>' + '<span>  NÚMERO DE ESTUDANTES</span>';
+    var enrollment = document.getElementById('enrollment');
+    enrollment.setAttribute('class', 'data-box');
+    var enrollmentTitle = document.getElementById('enrollmentTitle');
+    enrollmentTitle.innerHTML = 'REGISTRO' + '<hr class="hr-data-title"></hr>';
   }
 
   /* Calcula a porcentagem de estudantes desistentes */
@@ -87,17 +87,17 @@ function dataGeral() {
         }
       }
     }
-    var result = document.getElementById("averageStudents");
-    result.innerHTML = averageStudents + "<br>" + " <span>NÚMERO DE ESTUDANTES</span>";
-    var achievement = document.getElementById("achievement");
-    achievement.setAttribute("class", "data-box");
-    var achievementTitle = document.getElementById("achievementTitle");
-    achievementTitle.innerHTML = "ALCANCES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES QUE ATINGEM A META DE PONTOS EM TODOS OS SPRINTS</span>';
+    var result = document.getElementById('averageStudents');
+    result.innerHTML = averageStudents + '<br>' + ' <span>NÚMERO DE ESTUDANTES</span>';
+    var achievement = document.getElementById('achievement');
+    achievement.setAttribute('class', 'data-box');
+    var achievementTitle = document.getElementById('achievementTitle');
+    achievementTitle.innerHTML = 'ALCANCES' + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES QUE ATINGEM A META DE PONTOS EM TODOS OS SPRINTS</span>';
    
     /* Porcentagem que representa os dados anteriores em relação ao total de alunas*/ 
     var averageStudentsPercentage = parseInt((averageStudents * 100 / students.length));
-    var final = document.getElementById("averageStudentsPercentage");
-    final.innerHTML = averageStudentsPercentage + '%' + "<br>" + "<span>% DO TOTAL " + "(" + students.length + ")</span>";
+    var final = document.getElementById('averageStudentsPercentage');
+    final.innerHTML = averageStudentsPercentage + '%' + '<br>' + '<span>% DO TOTAL ' + '(' + students.length + ')</span>';
   }
 
   /* Cálculo do NPS médio total */
@@ -133,41 +133,41 @@ function dataGeral() {
   var resultPassive = parseInt(passive/ratings.length);
   var resultDetractors = parseInt(detractors/ratings.length);
 
-  var totalNps = document.getElementById("totalNps");
+  var totalNps = document.getElementById('totalNps');
   totalNps.innerHTML = resultTotal + '%' + '<br>' + '<span>% NPS CUMULATIVO</span>';
-  var specificNps = document.getElementById("specificNps");
+  var specificNps = document.getElementById('specificNps');
   specificNps.innerHTML = '<span>' + resultPromoters + '%' + ' PROMOTERS' + '<br>' + resultPassive + '%' + ' PASSIVE' + '<br>' + resultDetractors + '%' + ' DETRACTORS' + '</span>';
 
-  var nps = document.getElementById("nps");
-  nps.setAttribute("class", "data-box");
-  var npsTitle = document.getElementById("npsTitle");
-  npsTitle.innerHTML = "NET PROMOTER SCORE (NPS)" + '<hr class="hr-data-title"></hr>' + '<span class="description">RECOMENDAÇÃO DAS ESTUDANTES PERANTE À LABORATORIA</span>' + '<br>' + '<span class="description">(NPS MÉDIO DOS SPRINTS)</span>';
+  var nps = document.getElementById('nps');
+  nps.setAttribute('class', 'data-box');
+  var npsTitle = document.getElementById('npsTitle');
+  npsTitle.innerHTML = 'NET PROMOTER SCORE (NPS)' + '<hr class="hr-data-title"></hr>' + '<span class="description">RECOMENDAÇÃO DAS ESTUDANTES PERANTE À LABORATORIA</span>' + '<br>' + '<span class="description">(NPS MÉDIO DOS SPRINTS)</span>';
 
   /* Percentual médio de satisfação das estudantes */
-  var satisfaction = document.getElementById("satisfaction");
-  satisfaction.setAttribute("class", "data-box");
-  var satisfactionTitle =  document.getElementById("satisfactionTitle");
-  satisfactionTitle.innerHTML = "MÉDIA DE SATISFAÇÃO DAS ESTUDANTES" + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA <br> (CUMPRE, SUPERA OU NÃO CUMPRE ÀS EXPECTATIVAS)</span>';
-  var satisfactionPercentage = document.getElementById("satisfactionPercentage");
+  var satisfaction = document.getElementById('satisfaction');
+  satisfaction.setAttribute('class', 'data-box');
+  var satisfactionTitle =  document.getElementById('satisfactionTitle');
+  satisfactionTitle.innerHTML = 'MÉDIA DE SATISFAÇÃO DAS ESTUDANTES' + '<hr class="hr-data-title"></hr>' + '<span class="description">ESTUDANTES SATISFEITAS COM A EXPERIÊNCIA DA LABORATORIA <br> (CUMPRE, SUPERA OU NÃO CUMPRE ÀS EXPECTATIVAS)</span>';
+  var satisfactionPercentage = document.getElementById('satisfactionPercentage');
   satisfactionPercentage.innerHTML = '<span class="sprint">CUMPRE = </span>' + parseInt((cumple/ratings.length)) + '%' + '<br>' + '<span class="sprint">SUPERA = </span>' + parseInt((supera/ratings.length)) + '%' + '<br>' + '<span class="sprint">NÃO CUMPRE = </span>' + parseInt((noCumple/ratings.length)) + '%';
 
 
   /* Pontuação média dos mentores */
   var totalMentores = mentores/ratings.length;
-  var mentores = document.getElementById("mentores");
-  mentores.setAttribute("class", "data-box");
-  var mentoresTitle =  document.getElementById("mentoresTitle");
-  mentoresTitle.innerHTML = "PONTUAÇÃO MÉDIA DE MENTORES" + '<hr class="hr-data-title"></hr>';
-  var scoreMentores = document.getElementById("scoreMentores");
+  var mentores = document.getElementById('mentores');
+  mentores.setAttribute('class', 'data-box');
+  var mentoresTitle =  document.getElementById('mentoresTitle');
+  mentoresTitle.innerHTML = 'PONTUAÇÃO MÉDIA DE MENTORES' + '<hr class="hr-data-title"></hr>';
+  var scoreMentores = document.getElementById('scoreMentores');
   scoreMentores.innerHTML = totalMentores.toFixed(1) + '<br>' + '<span>PONTUAÇÃO MÁXIMA: 5.0</span>';
 
   /* Pontuação média dos mestres Jedi */
   var totalJedi = jedi/ratings.length;
-  var jedi = document.getElementById("jedi");
-  jedi.setAttribute("class", "data-box");
-  var jediTitle =  document.getElementById("jediTitle");
+  var jedi = document.getElementById('jedi');
+  jedi.setAttribute('class', 'data-box');
+  var jediTitle =  document.getElementById('jediTitle');
   jediTitle.innerHTML = "PONTUAÇÃO MÉDIA DE JEDI'S" + '<hr class="hr-data-title"></hr>';
-  var scoreJedi = document.getElementById("scoreJedi");
+  var scoreJedi = document.getElementById('scoreJedi');
   scoreJedi.innerHTML = totalJedi.toFixed(1) + '<br>' + '<span>PONTUAÇÃO MÁXIMA: 5.0</span>';
 
   /*A quantidade e porcentagem que representa o total de alunas que excedem a meta de pontos de HSE em média e sprint*/
@@ -186,16 +186,16 @@ function dataGeral() {
     } 
   }
 
-  var total = document.getElementById("hseNumber");
+  var total = document.getElementById('hseNumber');
   total.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + studentsHseSprint[0] + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + studentsHseSprint[1] + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + studentsHseSprint[2] + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + studentsHseSprint[3] + '<br>' + '<span>NÚMERO DE ESTUDANTES</span>';
 
-  var totalPercentage = document.getElementById("hsePercentage");
+  var totalPercentage = document.getElementById('hsePercentage');
   totalPercentage.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + parseInt(studentsHseSprint[0] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + parseInt(studentsHseSprint[1] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + parseInt(studentsHseSprint[2] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + parseInt(studentsHseSprint[3] * 100 / students.length) + '%' + '<br>' + '<span>% DE ESTUDANTES</span>';
 
-  var hseScores = document.getElementById("hseScores");
-  hseScores.setAttribute("class", "data-box");
-  var hseTitle =  document.getElementById("hseTitle");
-  hseTitle.innerHTML = "ESTUDANTES QUE EXCEDEM A META DE HSE" + '<hr class="hr-data-title"></hr>';
+  var hseScores = document.getElementById('hseScores');
+  hseScores.setAttribute('class', 'data-box');
+  var hseTitle =  document.getElementById('hseTitle');
+  hseTitle.innerHTML = 'ESTUDANTES QUE EXCEDEM A META DE HSE' + '<hr class="hr-data-title"></hr>';
 
   
   /*A quantidade e porcentagem que representa o total de alunas que excedem a meta de pontos técnicos em média e sprint*/
@@ -214,16 +214,16 @@ function dataGeral() {
     } 
   }
   
-  var totalTech = document.getElementById("techNumber");
+  var totalTech = document.getElementById('techNumber');
   totalTech.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + studentTechSprint[0] + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + studentTechSprint[1] + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + studentTechSprint[2] + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + studentTechSprint[3] + '<br>' + '<span>NÚMERO DE ESTUDANTES</span>';
 
-  var totalPercentageTech = document.getElementById("techPercentage");
+  var totalPercentageTech = document.getElementById('techPercentage');
   totalPercentageTech.innerHTML = '<span class="sprint">SPRINT 1 = </span>' + parseInt(studentTechSprint[0] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 2 = </span>' + parseInt(studentTechSprint[1] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 3 = </span>' + parseInt(studentTechSprint[2] * 100 / students.length) + '%' + '<br>' + '<span class="sprint">SPRINT 4 = </span>' + parseInt(studentTechSprint[3] * 100 / students.length) + '%' + '<br>' + '<span>% DE ESTUDANTES</span>';
 
-  var techScores = document.getElementById("techScores");
-  techScores.setAttribute("class", "data-box");
-  var techTitle =  document.getElementById("techTitle");
-  techTitle.innerHTML = "ESTUDANTES QUE EXCEDEM A META TECH" + '<hr class="hr-data-title"></hr>';
+  var techScores = document.getElementById('techScores');
+  techScores.setAttribute('class', 'data-box');
+  var techTitle =  document.getElementById('techTitle');
+  techTitle.innerHTML = 'ESTUDANTES QUE EXCEDEM A META TECH' + '<hr class="hr-data-title"></hr>';
 
 }
 

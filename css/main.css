@@ -217,6 +217,8 @@ footer a {
   margin: 20px;
   border: 1px solid rgb(209, 209, 209); 
   padding: 10px;
+  font-family: 'Lato', sans-serif; 
+  font-weight: 600; 
 }
 
 .profileImg {
@@ -279,4 +281,3 @@ footer a {
   height: 34px;
   width: 268px;
 }
-

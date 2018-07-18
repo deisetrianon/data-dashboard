@@ -85,6 +85,15 @@ function dataStudents() {
         }
       }
     }
+
+    tech1 = tech1?tech1:"sem dados";
+    tech2 = tech2?tech2:"sem dados";
+    tech3 = tech3?tech3:"sem dados";
+    tech4 = tech4?tech4:"sem dados";
+    hse1 = hse1?hse1:"sem dados";
+    hse2 = hse2?hse2:"sem dados";
+    hse3 = hse3?hse3:"sem dados";
+    hse4 = hse4?hse4:"sem dados";
     
     var sprintsTech = document.createElement("p");
     sprintsTech.innerHTML = '<span class="description">PONTOS TECH</span>' + '<br>' + '<span class="profileTitle">SPRINT 1: </span>' + tech1 + '<br>' + '<span class="profileTitle">SPRINT 2: </span>' + tech2 + '<br>' + '<span class="profileTitle">SPRINT 3: </span>' + tech3 + '<br>' + '<span class="profileTitle">SPRINT 4: </span>' + tech4;
