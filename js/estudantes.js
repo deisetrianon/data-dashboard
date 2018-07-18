@@ -63,9 +63,9 @@ function dataStudents() {
     var status = document.createElement("p");
     status.setAttribute('class', 'description');
     if (data[sede][turma]['students'][i]['active'] === true) {
-      status.innerHTML = 'ATIVA: SIM';
+      status.innerHTML = '<span class="active">ATIVA</span>';
     } else {
-      status.innerHTML = 'ATIVA: NÃO';
+      status.innerHTML = '<span class="inactive">INATIVA</span>';
     }
 
 
