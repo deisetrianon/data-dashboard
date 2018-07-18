@@ -281,3 +281,18 @@ footer a {
   height: 34px;
   width: 268px;
 }
+
+.active , .inactive {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: none!important;
+}
+
+.active {
+  color: green;
+}
+
+.inactive {
+  color: red;
+}
