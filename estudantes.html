@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Dashboard: Estudantes</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <!-- Fontes -->
+    <link href="fontes/stylesheet.css" rel="stylesheet" type="text/css" />
+    <!-- Fonte Lato -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700,800,900" rel="stylesheet">
+    <!-- Ícones -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" title="Página Inicial"><img src="assets/images/Laboratoria_CMYK_logo-01.png" width="270px" height="80px"></a>
+      <ul class="navigation-list">
+        <li><a href="geral.html" title="Visão Geral" class="nav-item">VISÃO GERAL</a></li>
+        <li><a href="estudantes.html" title="Estudantes" class="active-link">ESTUDANTES</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="title"><i class="fas fa-angle-double-right fa-lg"></i> DADOS INDIVIDUAIS DAS ESTUDANTES</h1>
+
+    <div class="styled-select slate">
+      <select id="select-sede-students" autocomplete="off"></select>
+    </div>
+    <div class="styled-select slate">
+      <select id="select-turma-students" autocomplete="off"></select>
+    </div>
+
+    <section id="studentsProfiles" class="students-profiles">
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>   
+		<script src="./js/data.js"></script>
+    <script src="./js/estudantes.js"></script>
+  </body>
+</html>
