@@ -28,9 +28,11 @@ function dataGeral() {
   sede = $('#select-sede').val();
   turma = $('#select-turma').val();
 
-  /* Calcula o número total de estudantes por sede e geração */
+  /* Cálculo do número total de estudantes por sede e geração e a porcentagem de estudantes desistentes */
   for (students in data[sede][turma]) {
     var students = data[sede][turma].students;
+    var quitterStudents = students.filter(x => !x.active).length;
+
     $('#studentsCounter').html(`
       ${students.length} 
       <br> 
@@ -43,25 +45,15 @@ function dataGeral() {
       REGISTRO
       <hr class="hr-data-title"></hr>
     `);
-  }
-
-  /* Calcula a porcentagem de estudantes desistentes */
-  var quitter = 0;
-  for (i in data[sede][turma]["students"]) {
-    if (students[i].active === false) {
-      quitter++;
-      var quitterPercentage = Math.round((quitter * 100 / students.length));
-    }
 
     $('#quitterPercentage').html(`
-      ${quitterPercentage}%
+      ${Math.round(quitterStudents * 100 / students.length)}%
       <br>
       <span class="info-text">  % DE DESISTÊNCIAS</span>
     `);
   }
 
-
-  /* Calcula o número de alunas que excedem a meta de pontos, em média, de todos os sprints*/
+  /* Cálculo do número de alunas que excedem a meta de pontos, em média, de todos os sprints e a sua porcentagem */
   var array = [];
   for (var i = 0; i < students.length; i++) {
     var techTotal = 0;
@@ -74,10 +66,11 @@ function dataGeral() {
         var hse = students[i].sprints[j].score.hse;
         hseTotal = hseTotal + hse;
       }
+
       var hseAverage = hseTotal / sprint;
       var techAverage = techTotal / sprint;
-  
       array.push([techAverage, hseAverage]);
+
       var averageStudents = 0;
       for (var k = 0; k < array.length; k++) {
         if (array[k][0] > 1260 && array[k][1] > 840) {
@@ -100,16 +93,14 @@ function dataGeral() {
       <span class="description">ESTUDANTES QUE ATINGEM A META DE PONTOS EM TODOS OS SPRINTS</span>
     `);
 
-    /* Porcentagem que representa os dados anteriores em relação ao total de alunas*/ 
-    var averageStudentsPercentage = Math.round((averageStudents * 100 / students.length));
     $('#averageStudentsPercentage').html(`
-      ${averageStudentsPercentage}%
+      ${Math.round((averageStudents * 100 / students.length))}%
       <br>
       <span class="info-text">% DO TOTAL (${students.length})</span>
     `)
   }
 
-  /* Cálculo do NPS médio total */
+  /* Cálculo do NPS */
   var ratings = data[sede][turma].ratings;
   var npsCount = 0;
   var promoters = 0;
@@ -135,26 +126,20 @@ function dataGeral() {
     mentores = mentores + ratings[i]['teacher'];
     jedi = jedi + ratings[i]['jedi'];
   }
-  var resultTotal = Math.round(npsCount/ratings.length);
-  
-  /* Cálculo do NPS médio específico */
-  var resultPromoters = Math.round(promoters/ratings.length);
-  var resultPassive = Math.round(passive/ratings.length);
-  var resultDetractors = Math.round(detractors/ratings.length);
 
   $('#totalNps').html(`
-    ${resultTotal}%
+    ${Math.round(npsCount / ratings.length)}%
     <br>
     <span class="info-text">% NPS CUMULATIVO</span>
   `);
 
   $('#specificNps').html(`
     <span class="info-text">
-      ${resultPromoters}% PROMOTERS
+      ${Math.round(promoters / ratings.length)}% PROMOTERS
       <br>
-      ${resultPassive}% PASSIVE
+      ${Math.round(passive / ratings.length)}% PASSIVE
       <br>
-      ${resultDetractors}% DETRACTORS
+      ${Math.round(detractors / ratings.length)}% DETRACTORS
     </span>
   `);
 
@@ -179,17 +164,16 @@ function dataGeral() {
 
   $('#satisfactionPercentage').html(`
     <span class="sprint">CUMPRE = </span>
-    ${Math.round((cumple/ratings.length))}%
+    ${Math.round((cumple / ratings.length))}%
     <br>
     <span class="sprint">SUPERA = </span> 
-    ${Math.round((supera/ratings.length))}%
+    ${Math.round((supera / ratings.length))}%
     <br>
     <span class="sprint">NÃO CUMPRE = </span>
-    ${Math.round((noCumple/ratings.length))}%
+    ${Math.round((noCumple / ratings.length))}%
   `);
 
   /* Pontuação média dos mentores */
-  var totalMentores = mentores/ratings.length;
   $('#mentores').attr('class', 'data-box');
 
   $('#mentoresTitle').html(`
@@ -198,13 +182,12 @@ function dataGeral() {
   `);
 
   $('#scoreMentores').html(`
-    ${totalMentores.toFixed(1)}
+    ${(mentores / ratings.length).toFixed(1)}
     <br>
     <span class="info-text">PONTUAÇÃO MÁXIMA: 5.0</span>
   `);
 
   /* Pontuação média dos mestres Jedi */
-  var totalJedi = jedi/ratings.length;
   $('#jedi').attr('class', 'data-box');
 
   $('#jediTitle').html(`
@@ -213,12 +196,12 @@ function dataGeral() {
   `);
 
   $('#scoreJedi').html(`
-    ${totalJedi.toFixed(1)}
+    ${(jedi / ratings.length).toFixed(1)}
     <br>
     <span class="info-text">PONTUAÇÃO MÁXIMA: 5.0</span>
   `);
 
-  /*A quantidade e porcentagem que representa o total de alunas que excedem a meta de pontos de HSE em média e sprint*/
+  /* A quantidade e porcentagem que representa o total de alunas que excedem a meta de pontos de HSE em média e sprint */
   var studentsHseSprint = [0, 0, 0, 0];
   for (var s = 0; s < students.length; s++) {
     var student = students[s];
