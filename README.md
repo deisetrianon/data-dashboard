@@ -1,12 +1,12 @@
 # Data Dashboard
 
-Dashboard de dados desenvolvido para facilitar o acesso de Training Managers aos dados de alunas da Laboratória.
+The goal of this project is to create a data dashboard designed for Laboratória's Training Managers to access the students database.
 
-![Prévia](https://raw.githubusercontent.com/deisetrianon/data-dashboard/master/assets/images/demo.PNG)
+![demo](https://raw.githubusercontent.com/deisetrianon/data-dashboard/master/assets/images/demo.PNG)
 
 
-## Equipe
+## Authors
 
-Deise Trianon e Andreia Balbino.
+[Deise Trianon](https://github.com/deisetrianon) and [Andreia Balbino](https://github.com/andreiabal).
 
-## Desenvolvido para [Laboratória](http://www.laboratoria.la/)
+## Developed for [Laboratória](http://www.laboratoria.la/)
